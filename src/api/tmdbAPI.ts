@@ -2,7 +2,16 @@ import axios from "redaxios";
 
 const TMDB_API_BASE_URL:string = 'https://api.themoviedb.org';
 const TMDB_API_VERSION:number = 3;
-const TMDB_API_KEY:string = "***********";
+const TMDB_API_KEY:string = "****";
+
+export const tmdbAPI = axios.create({
+  baseURL: TMDB_API_BASE_URL,
+  params: {
+    api_key: TMDB_API_KEY,
+  }
+});
+
+// sıkıntı çıkarsa alt satırda export {tmdbAPI} dene
 
 export async function getPopularMovies() {
   try {
@@ -17,15 +26,10 @@ export async function getPopularMovies() {
 };
 
 export async function getMovieGenres() {
-  try {
-    const res = await axios.get(
-      `${TMDB_API_BASE_URL}/${TMDB_API_VERSION}/genre/movie/list?api_key=${TMDB_API_KEY}&language=en-US`
-    );
+  const res = await axios.get(
+    `${TMDB_API_BASE_URL}/${TMDB_API_VERSION}/genre/movie/list?api_key=${TMDB_API_KEY}&language=en-US`
+  );
 
-    const genres:[] = res.data.genres;
-    console.log(genres);
-
-  } catch (error) {
-    console.error(error);
-  }
+  const genres: [] = res.data.genres;
+  return (genres);
 };

@@ -1,5 +1,7 @@
+import { useSelector } from 'react-redux';
 import { getMovieGenres } from '../../api/tmdbAPI';
-import './style.css'
+import './style.css';
+import type { RootState } from '../../store';
 
 type movieCategories = {
   id:string,
@@ -14,8 +16,8 @@ const STATIC_MOVIE_CATEGORIES:movieCategories[] = [
 
 function Menu() {
 
-  
-  
+
+  const test = useSelector((state:RootState) => state.test)
 
   return (
     <div className="side-drawer">
@@ -27,7 +29,10 @@ function Menu() {
       })}
 
       <h2>Genres</h2>
+      <p>{test}</p>
+
       
+
     </div>
   );
 }
@@ -38,12 +43,14 @@ export default Menu;
 // type genre = {
 //     id:number,
 //     name:string,
-//   }
+//   };
 //   type genres = genre[];
 
   
-//   const genres:Promise<genre[] | undefined > = getMovieGenres();
+//   const genres = getMovieGenres();
 
 // {genres.map((genre:genre) => {
 //         return <p key={genre.id}>{genre.name}</p>;
-//       })}
+//       })};
+
+

@@ -4,7 +4,7 @@ import './App.css';
 
 function App() {
 
-  getMovieGenres();
+  
 
   return (
     <div className="App">

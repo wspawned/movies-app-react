@@ -28,6 +28,8 @@ components/
 
 https://www.robinwieruch.de/react-folder-structure/
 
-you cannot call async functions inside your JSX. --- In general you load data in a useEffect callback with an empty dependency array. You'll also need let name = await getNameOfPerson(); because getNameOfPerson is async. Without await you'll get the unresolved Promise.
+## Redux with TypeScript
+
+https://redux.js.org/usage/usage-with-typescript
 
 
