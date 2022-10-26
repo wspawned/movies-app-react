@@ -14,14 +14,7 @@ const STATIC_MOVIE_CATEGORIES:movieCategories[] = [
 
 function Menu() {
 
-  type genre = {
-    id:number,
-    name:string,
-  }
-  type genres = genre[];
-
   
-  const genres:Promise<genre[] | undefined > = getMovieGenres();
   
 
   return (
@@ -34,11 +27,23 @@ function Menu() {
       })}
 
       <h2>Genres</h2>
-      {genres.map((genre:genre) => {
-        return <p key={genre.id}>{genre.name}</p>;
-      })}
+      
     </div>
   );
 }
 
 export default Menu;
+
+
+// type genre = {
+//     id:number,
+//     name:string,
+//   }
+//   type genres = genre[];
+
+  
+//   const genres:Promise<genre[] | undefined > = getMovieGenres();
+
+// {genres.map((genre:genre) => {
+//         return <p key={genre.id}>{genre.name}</p>;
+//       })}

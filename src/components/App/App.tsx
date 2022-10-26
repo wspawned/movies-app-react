@@ -3,6 +3,9 @@ import Menu from '../Menu';
 import './App.css';
 
 function App() {
+
+  getMovieGenres();
+
   return (
     <div className="App">
       <div className='side-drawer'>

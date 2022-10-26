@@ -2,7 +2,7 @@ import axios from "redaxios";
 
 const TMDB_API_BASE_URL:string = 'https://api.themoviedb.org';
 const TMDB_API_VERSION:number = 3;
-const TMDB_API_KEY:string = "***";
+const TMDB_API_KEY:string = "***********";
 
 export async function getPopularMovies() {
   try {
@@ -23,7 +23,7 @@ export async function getMovieGenres() {
     );
 
     const genres:[] = res.data.genres;
-    return (genres);
+    console.log(genres);
 
   } catch (error) {
     console.error(error);
