@@ -1,6 +1,6 @@
+import { getPopularMovies, getMovieGenres } from '../../api/tmdbAPI';
 import Menu from '../Menu';
 import './App.css';
-
 
 function App() {
   return (
