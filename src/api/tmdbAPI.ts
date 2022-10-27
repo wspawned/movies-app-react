@@ -2,7 +2,7 @@ import axios from "redaxios";
 
 const TMDB_API_BASE_URL:string = 'https://api.themoviedb.org';
 const TMDB_API_VERSION:number = 3;
-const TMDB_API_KEY:string = "*********";
+const TMDB_API_KEY:string = "*************";
 
 export const tmdbAPI = axios.create({
   baseURL: TMDB_API_BASE_URL,

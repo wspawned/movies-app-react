@@ -1,7 +1,8 @@
-import { useSelector } from 'react-redux';
-import { getMovieGenres } from '../../api/tmdbAPI';
+import { useDispatch, useSelector } from 'react-redux';
 import './style.css';
 import type { RootState } from '../../store';
+import { getGenres } from '../../actions/getGenres';
+import { useEffect } from 'react';
 
 type movieCategories = {
   id:string,
@@ -15,6 +16,15 @@ const STATIC_MOVIE_CATEGORIES:movieCategories[] = [
 ];
 
 function Menu() {
+
+  // const dispatch = useDispatch();
+  // useEffect(()=>{
+  //   dispatch(getGenres())
+  // }, [dispatch] );
+
+
+  // const dispatch = useDispatch();
+  // dispatch(getGenres());
 
 
   const test = useSelector((state:RootState) => state.test)
