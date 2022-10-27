@@ -15,19 +15,23 @@ const STATIC_MOVIE_CATEGORIES:movieCategories[] = [
   {id: 'upcoming', name: 'Upcoming'}
 ];
 
+
+  type genre = {
+    id:number,
+    name:string,
+  };
+  type genres = genre[];
+
+
 function Menu() {
 
-  // const dispatch = useDispatch();
-  // useEffect(()=>{
-  //   dispatch(getGenres())
-  // }, [dispatch] );
+  const dispatch = useDispatch();
+  useEffect(()=>{
+    // @ts-ignore
+    dispatch(getGenres());
+  }, [dispatch] );
 
-
-  // const dispatch = useDispatch();
-  // dispatch(getGenres());
-
-
-  const test = useSelector((state:RootState) => state.test)
+  const genres:genres = useSelector((state:RootState) => state.genres);
 
   return (
     <div className="side-drawer">
@@ -39,28 +43,11 @@ function Menu() {
       })}
 
       <h2>Genres</h2>
-      <p>{test}</p>
-
-      
-
+      {genres.map((genre:genre)=>{
+        return <p key={genre.id} >{genre.name}</p>
+      })}
     </div>
   );
 }
 
 export default Menu;
-
-
-// type genre = {
-//     id:number,
-//     name:string,
-//   };
-//   type genres = genre[];
-
-  
-//   const genres = getMovieGenres();
-
-// {genres.map((genre:genre) => {
-//         return <p key={genre.id}>{genre.name}</p>;
-//       })};
-
-

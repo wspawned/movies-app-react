@@ -1,7 +1,6 @@
-import { AnyAction, combineReducers, PayloadAction } from "@reduxjs/toolkit";
+import { AnyAction } from "@reduxjs/toolkit";
 
 const INITIAL_STATE = {
-  test: "can U hear mee",
   genres: [],
 };
 

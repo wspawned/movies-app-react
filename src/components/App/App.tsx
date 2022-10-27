@@ -1,4 +1,3 @@
-import { getPopularMovies, getMovieGenres, tmdbAPI } from '../../api/tmdbAPI';
 import Menu from '../Menu';
 import './App.css';
 
