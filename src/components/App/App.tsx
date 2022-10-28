@@ -1,4 +1,5 @@
 import Menu from '../Menu';
+import MovieList from '../MovieList';
 import './App.css';
 
 function App() {
@@ -9,9 +10,9 @@ function App() {
       <div className='side-drawer'>
         <Menu/>
       </div>
-      <p>
-        HELLO
-      </p>
+      <div className='home-list'>
+        <MovieList/>
+      </div>
     </div>
   );
 }
