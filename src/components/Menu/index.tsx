@@ -4,16 +4,7 @@ import type { RootState } from '../../store';
 import { getGenres } from '../../actions/getGenres';
 import { useEffect } from 'react';
 
-type movieCategories = {
-  id:string,
-  name:string,
-}
 
-const STATIC_MOVIE_CATEGORIES:movieCategories[] = [
-  {id: 'popular', name: 'Popular'},
-  {id: 'top_rated', name: 'Top Rated'},
-  {id: 'upcoming', name: 'Upcoming'}
-];
 
 
   type genre = {
@@ -31,14 +22,15 @@ function Menu() {
     dispatch(getGenres());
   }, [dispatch] );
 
-  const genres:genres = useSelector((state:RootState) => state.genres);
+  const genres:genres = useSelector((state:RootState) => state.general.genres);
+  const staticCategories = useSelector((state:RootState) => state.general.staticCategories);
 
   return (
     <div className="side-drawer">
       <p>ı am the side drawer</p>
 
       <h2>Discover</h2>
-      {STATIC_MOVIE_CATEGORIES.map((category: movieCategories) => {
+      {staticCategories.map((category:any) => {
         return <p key={category.id}>{category.name}</p>;
       })}
 
