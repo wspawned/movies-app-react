@@ -11,12 +11,18 @@ const MovieList = () => {
 
   return (
     <>
-    <h2>{selectedMenuItemName}</h2>
-    {hello.map((elm, index)=>{
-      return <div key={index} >{elm}</div>
-    })}
+      <h2>{selectedMenuItemName}</h2>
+      <div className="home-list">
+        {hello.map((elm, index) => {
+          return (
+            <div className="list-item" key={index}>
+              {elm}
+            </div>
+          );
+        })}
+      </div>
     </>
-  )
+  );
 };
 
 export default MovieList;
