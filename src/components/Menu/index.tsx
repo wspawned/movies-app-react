@@ -1,11 +1,8 @@
-import { useDispatch, useSelector } from 'react-redux';
 import './style.css';
-import type { RootState } from '../../store';
-import { getGenres } from '../../actions/getGenres';
+import { getGenres } from '../../redux/actions/getGenres';
 import { useEffect } from 'react';
-
-
-
+import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
+import { RootState } from '../../redux/store';
 
   type genre = {
     id:number,
@@ -16,14 +13,14 @@ import { useEffect } from 'react';
 
 function Menu() {
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   useEffect(()=>{
     // @ts-ignore
     dispatch(getGenres());
   }, [dispatch] );
 
-  const genres:genres = useSelector((state:RootState) => state.general.genres);
-  const staticCategories = useSelector((state:RootState) => state.general.staticCategories);
+  const genres:genres = useAppSelector((state:RootState) => state.general.genres);
+  const staticCategories = useAppSelector((state:RootState) => state.general.staticCategories);
 
   return (
     <div className="side-drawer">
