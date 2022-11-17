@@ -28,6 +28,6 @@ export async function getMovieGenres() {
     `${TMDB_API_BASE_URL}/${TMDB_API_VERSION}/genre/movie/list?api_key=${TMDB_API_KEY}&language=en-US`
   );
 
-  const genres: [] = res.data.genres;
+  const genres = res.data.genres;
   return (genres);
 };

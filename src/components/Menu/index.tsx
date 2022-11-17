@@ -15,7 +15,6 @@ function Menu() {
 
   const dispatch = useAppDispatch();
   useEffect(()=>{
-    // @ts-ignore
     dispatch(getGenres());
   }, [dispatch] );
 

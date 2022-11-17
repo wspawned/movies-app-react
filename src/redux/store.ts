@@ -1,15 +1,17 @@
 import  thunkMiddleWare  from 'redux-thunk';
-import {  configureStore } from '@reduxjs/toolkit';
+import {  combineReducers, configureStore } from '@reduxjs/toolkit';
 import { generalSlice } from './slices/generalSlice';
 
+const rootReducer = combineReducers({
+  general: generalSlice.reducer,
+})
+
 const store = configureStore({
-  reducer: {
-    general: generalSlice.reducer
-  },
+  reducer: rootReducer,
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunkMiddleWare),
 })
 
-export type RootState = ReturnType<typeof store.getState>;
+export type RootState = ReturnType<typeof rootReducer>;
 export type AppDispatch = typeof store.dispatch;
 
 export default store;
