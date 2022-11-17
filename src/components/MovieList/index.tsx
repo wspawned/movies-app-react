@@ -11,7 +11,9 @@ const MovieList = () => {
 
   return (
     <>
-      <h2>{selectedMenuItemName}</h2>
+      <h1>{selectedMenuItemName}</h1>
+      <h2>MOVIES</h2>
+      
       <div className="home-list">
         {hello.map((elm, index) => {
           return (

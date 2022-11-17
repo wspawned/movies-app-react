@@ -23,11 +23,10 @@ function Menu() {
 
   return (
     <div className="side-drawer">
-      <p>ı am the side drawer</p>
 
       <h2>Discover</h2>
       {staticCategories.map((category:any) => {
-        return <p key={category.id}>{category.name}</p>;
+        return <p  key={category.id}>{category.name}</p>;
       })}
 
       <h2>Genres</h2>

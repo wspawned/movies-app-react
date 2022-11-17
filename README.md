@@ -32,5 +32,9 @@ https://www.robinwieruch.de/react-folder-structure/
 
 https://redux.js.org/usage/usage-with-typescript
 
-# Configurestore and rootReducer at store, apply rootReducer
+# React Router
+
+https://www.pluralsight.com/guides/using-react-router-with-redux
+
+
 

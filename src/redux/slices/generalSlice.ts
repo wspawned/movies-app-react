@@ -16,7 +16,7 @@ const STATIC_MOVIE_CATEGORIES:staticMovieCategories[] = [
 const INITIAL_STATE = {
   staticCategories: STATIC_MOVIE_CATEGORIES,
   genres: [],
-  selectedMenuItemName: "Welcome",
+  selectedMenuItemName: STATIC_MOVIE_CATEGORIES[0].name.toUpperCase() ,
 };
 
 export const generalSlice = createSlice({
