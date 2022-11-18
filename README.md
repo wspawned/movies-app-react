@@ -53,5 +53,16 @@ import { useNavigate, redirect, useLocation } from 'react-router-dom';
 ```
 # handle TS later
 
+Mixed Content: The page at URL was loaded over HTTPS, but requested an insecure resource URL.
+
+This request has been blocked; the content must be served over HTTPS
+
+Fixed by changing HTML
+```
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+```
+
+Genre movies are OK but Discover part has problem.
+
 
 

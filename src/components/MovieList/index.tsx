@@ -27,7 +27,7 @@ const MovieList = () => {
   
   useEffect(() => {
     navigate(`/${selectedMenuItemId}`);
-    // @ts-ignore
+
     dispatch(getGenreMovies(genreId));
   }, [selectedMenuItemName, navigate, dispatch ] )
 
@@ -44,7 +44,7 @@ const MovieList = () => {
           return (
             <div className="list-item" key={index}>
               
-              {// @ts-ignore
+              {
                 movie.title
               }
             </div>
