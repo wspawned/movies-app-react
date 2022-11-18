@@ -22,7 +22,11 @@ const INITIAL_STATE = {
 export const generalSlice = createSlice({
   name: "general",
   initialState: INITIAL_STATE,
-  reducers: {},
+  reducers: {
+    setSelectedMenuItemName: (state, action) => {
+      state.selectedMenuItemName = action.payload.toUpperCase()
+    }
+  },
   extraReducers: (builder) => {
     // Add reducers for additional action types here, and handle loading state as needed
     builder.addCase(getGenres.fulfilled, (state, action) => {
@@ -30,5 +34,7 @@ export const generalSlice = createSlice({
     })
   },
 })
+
+export const { setSelectedMenuItemName } = generalSlice.actions;
 
 // Action creators are generated for each case reducer function
