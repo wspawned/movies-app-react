@@ -1,6 +1,9 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import './style.css';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+
 
 
 const MovieList = () => {
@@ -8,6 +11,14 @@ const MovieList = () => {
   const selectedMenuItemName = useSelector((state:RootState)=>state.general.selectedMenuItemName);
 
   const hello = Array(20).fill("X")
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate(`/${selectedMenuItemName}`)
+
+  }, [selectedMenuItemName] )
+
 
   return (
     <>
