@@ -3,8 +3,8 @@ import { getGenres } from '../../redux/actions/getGenres';
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
 import { RootState } from '../../redux/store';
-import { setSelectedMenuItemName } from '../../redux/slices/generalSlice';
-import { useNavigate, redirect, BrowserRouter, useLocation } from 'react-router-dom';
+import { setSelectedMenuItem } from '../../redux/slices/generalSlice';
+
 
 
 type genre = {
@@ -15,7 +15,7 @@ type genres = genre[];
 
 function Menu() {
 
-  // const location = useLocation();
+  
 
   const dispatch = useAppDispatch();
   useEffect(() => {
@@ -37,7 +37,7 @@ function Menu() {
       {staticCategories.map((category: any) => {
         return (
           <p
-            onClick={() => dispatch(setSelectedMenuItemName(category.name))}
+            onClick={() => dispatch(setSelectedMenuItem(category))}
             key={category.id}
           >
             {category.name}
@@ -49,7 +49,7 @@ function Menu() {
       {genres.map((genre: genre) => {
         return (
           <p
-            onClick={() => dispatch(setSelectedMenuItemName(genre.name))}
+            onClick={() => dispatch(setSelectedMenuItem(genre))}
             key={genre.id}
           >
             {genre.name}

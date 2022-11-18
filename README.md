@@ -1,4 +1,10 @@
+# yerkenizlefullizle9.com
+
+[Deployed project link](https://main.d9k5wnto5btwe.amplifyapp.com/)
+
 # Notes
+
+
 
 ## API url
 
@@ -32,9 +38,20 @@ https://www.robinwieruch.de/react-folder-structure/
 
 https://redux.js.org/usage/usage-with-typescript
 
-# React Router
+https://redux-toolkit.js.org/api/createslice
+
+## React Router
 
 https://www.pluralsight.com/guides/using-react-router-with-redux
+
+https://reactrouter.com/en/main/hooks/use-navigate
+
+TRY this one with redux next time [Connected React Router](https://github.com/supasate/connected-react-router)
+
+```
+import { useNavigate, redirect, useLocation } from 'react-router-dom';
+```
+
 
 
 

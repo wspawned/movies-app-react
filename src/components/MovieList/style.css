@@ -9,3 +9,8 @@
   height: 100px;
   background-color: blue;
 }
+
+.category-header {
+  align-items: center;
+  margin: auto;
+}

@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getGenreMovies } from "../actions/getGenreMovies";
 import { getGenres } from "../actions/getGenres";
 
 
@@ -16,25 +17,30 @@ const STATIC_MOVIE_CATEGORIES:staticMovieCategories[] = [
 const INITIAL_STATE = {
   staticCategories: STATIC_MOVIE_CATEGORIES,
   genres: [],
-  selectedMenuItemName: STATIC_MOVIE_CATEGORIES[0].name.toUpperCase() ,
+  selectedMenuItem: STATIC_MOVIE_CATEGORIES[0] ,
+  movies: [],
 };
 
 export const generalSlice = createSlice({
   name: "general",
   initialState: INITIAL_STATE,
   reducers: {
-    setSelectedMenuItemName: (state, action) => {
-      state.selectedMenuItemName = action.payload.toUpperCase()
+    setSelectedMenuItem: (state, action) => {
+      state.selectedMenuItem = action.payload
     }
   },
   extraReducers: (builder) => {
     // Add reducers for additional action types here, and handle loading state as needed
-    builder.addCase(getGenres.fulfilled, (state, action) => {
+    builder
+    .addCase(getGenres.fulfilled, (state, action) => {
       state.genres = action.payload.genres
+    })
+    .addCase(getGenreMovies.fulfilled, (state, action) => {
+      state.movies = action.payload
     })
   },
 })
 
-export const { setSelectedMenuItemName } = generalSlice.actions;
+export const { setSelectedMenuItem } = generalSlice.actions;
 
 // Action creators are generated for each case reducer function
