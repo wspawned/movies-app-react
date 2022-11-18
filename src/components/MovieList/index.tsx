@@ -24,8 +24,10 @@ const MovieList = () => {
 
   const dispatch = useAppDispatch();
 
+  
   useEffect(() => {
     navigate(`/${selectedMenuItemId}`);
+    // @ts-ignore
     dispatch(getGenreMovies(genreId));
   }, [selectedMenuItemName, navigate, dispatch ] )
 
@@ -41,7 +43,10 @@ const MovieList = () => {
         {movies.map((movie, index) => {
           return (
             <div className="list-item" key={index}>
-              {movie.title}
+              
+              {// @ts-ignore
+                movie.title
+              }
             </div>
           );
         })}

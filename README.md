@@ -51,7 +51,7 @@ TRY this one with redux next time [Connected React Router](https://github.com/su
 ```
 import { useNavigate, redirect, useLocation } from 'react-router-dom';
 ```
-
+# handle TS later
 
 
 
