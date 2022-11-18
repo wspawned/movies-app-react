@@ -10,24 +10,3 @@ export const tmdbAPI = axios.create({
     api_key: TMDB_API_KEY,
   }
 });
-
-export async function getPopularMovies() {
-  try {
-    const res = await axios.get(
-      `${TMDB_API_BASE_URL}/${TMDB_API_VERSION}/movie/popular?api_key=${TMDB_API_KEY}&language=en-US&page=1`
-    );
-
-    console.log(res);
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-export async function getMovieGenres() {
-  const res = await axios.get(
-    `${TMDB_API_BASE_URL}/${TMDB_API_VERSION}/genre/movie/list?api_key=${TMDB_API_KEY}&language=en-US`
-  );
-
-  const genres = res.data.genres;
-  return (genres);
-};

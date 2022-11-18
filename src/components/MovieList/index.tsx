@@ -27,8 +27,10 @@ const MovieList = () => {
   
   useEffect(() => {
     navigate(`/${selectedMenuItemId}`);
-
+    // console.log(location);
     dispatch(getGenreMovies(genreId));
+
+
   }, [selectedMenuItemName, navigate, dispatch ] )
 
 
