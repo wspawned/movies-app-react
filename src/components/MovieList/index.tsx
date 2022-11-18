@@ -12,10 +12,10 @@ const MovieList = () => {
 
   const selectedMenuItemName = useSelector((state:RootState)=>state.general.selectedMenuItem.name);
   const selectedMenuItemId = useSelector((state:RootState)=>state.general.selectedMenuItem.id);
+  const movies = useAppSelector((state) => state.movieList.movies );
 
   
 
-  const movies = useAppSelector((state) => state.general.movies )
 
   const navigate = useNavigate();
 

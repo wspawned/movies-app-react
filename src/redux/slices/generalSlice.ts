@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 import { getGenreMovies } from "../actions/getGenreMovies";
 import { getGenres } from "../actions/getGenres";
 import type { GenreMoviesResult } from "../actions/getGenreMovies";
-import { type } from "os";
 
 type staticMovieCategories = {
   id:string,
@@ -35,9 +34,6 @@ export const generalSlice = createSlice({
     builder
     .addCase(getGenres.fulfilled, (state, action) => {
       state.genres = action.payload.genres
-    })
-    .addCase(getGenreMovies.fulfilled, (state, action) => {
-      state.movies = action.payload
     })
   },
 })
