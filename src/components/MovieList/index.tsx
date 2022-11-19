@@ -1,37 +1,31 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import './style.css';
-import { useNavigate } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import { getGenreMovies } from '../../redux/actions/getGenreMovies';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
 
 
 const MovieList = () => {
 
-  const selectedMenuItemName = useSelector((state:RootState)=>state.general.selectedMenuItem.name);
-  const selectedMenuItemId = useSelector((state:RootState)=>state.general.selectedMenuItem.id);
+  const selectedMenuItem = useSelector((state:RootState)=>state.general.selectedMenuItem);
+  const selectedMenuItemName = selectedMenuItem.name;
+  const selectedMenuItemId = selectedMenuItem.id;
+
   const movies = useAppSelector((state) => state.movieList.movies );
-
-  
-
-
-  const navigate = useNavigate();
-
-  const location = useLocation();
-  const genreId = location.pathname.replace("/","");
-
   const dispatch = useAppDispatch();
 
+  const [searchParams, setSearchParams] = useSearchParams();
+  const genreId = searchParams.get("id");
   
-  useEffect(() => {
-    navigate(`/${selectedMenuItemId}`);
-    // console.log(location);
+  useEffect( () => {
+    setSearchParams({category:`${selectedMenuItemName}`,id: `${selectedMenuItemId}`, page:"5"});
+    //@ts-ignore
     dispatch(getGenreMovies(genreId));
+    console.log(genreId)
 
-
-  }, [selectedMenuItemName, navigate, dispatch ] )
+  }, [selectedMenuItem, dispatch, genreId ] )
 
 
   return (

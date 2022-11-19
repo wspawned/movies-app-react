@@ -64,5 +64,9 @@ Fixed by changing HTML
 
 Genre movies are OK but Discover part has problem.
 
+exploits on upcoming than action when getGenreMovies is conditional
+
+FIND BETTER PLACE FOR QUERY PARAMS and Scroll to top
+
 
 

@@ -1,5 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { tmdbAPI } from "../../api/tmdbAPI";
+import { STATIC_MOVIE_CATEGORIES } from "../slices/generalSlice";
+
+
 
 export type ApiResponse = {
   page: number;
@@ -25,15 +28,36 @@ export type GenreMoviesResult = {
   vote_count: number;
 }
 
+const staticIds = STATIC_MOVIE_CATEGORIES.map((elm)=> {return elm.id} );
+
 export const getGenreMovies = createAsyncThunk(
   "genreMovies/get",
   async (genreId:string) => {
-    const res = await tmdbAPI.get("/3/discover/movie/", {
-      params: {
-        with_genres: genreId,
-        page: 1,
-      }
-    });
-    return res.data.results as GenreMoviesResult[];
+    if(staticIds.includes(genreId)) {
+      const res = await tmdbAPI.get(`/3/movie/${genreId}`, {
+        params: {
+          page: 1,
+        }
+      });
+      return res.data.results as GenreMoviesResult[];
+    } else {
+      const res = await tmdbAPI.get("/3/discover/movie/", {
+        params: {
+          with_genres: genreId,
+          page: 1,
+        }
+      });
+      return res.data.results as GenreMoviesResult[];
+    }
+
   }
 );
+
+// async (genreId:string) => {
+//   const res = await tmdbAPI.get("/3/discover/movie/", {
+//     params: {
+//       with_genres: genreId,
+//       page: 1,
+//     }
+//   });
+//   return res.data.results as GenreMoviesResult[];
