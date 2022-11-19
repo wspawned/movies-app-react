@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import './style.css';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { getGenreMovies } from '../../redux/actions/getGenreMovies';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
@@ -17,15 +17,23 @@ const MovieList = () => {
   const dispatch = useAppDispatch();
 
   const [searchParams, setSearchParams] = useSearchParams();
-  const genreId = searchParams.get("id");
   
+
+  // const location = useLocation();
+  const genreId = searchParams.get("id");
+
   useEffect( () => {
     setSearchParams({category:`${selectedMenuItemName}`,id: `${selectedMenuItemId}`, page:"5"});
+    console.log(selectedMenuItem)
+  }, [selectedMenuItem ] )
+  
+  useEffect( () => {
+    
     //@ts-ignore
     dispatch(getGenreMovies(genreId));
     console.log(genreId)
 
-  }, [selectedMenuItem, dispatch, genreId ] )
+  }, [genreId, dispatch ] )
 
 
   return (

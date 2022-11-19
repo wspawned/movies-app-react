@@ -62,10 +62,6 @@ Fixed by changing HTML
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 ```
 
-Genre movies are OK but Discover part has problem.
-
-exploits on upcoming than action when getGenreMovies is conditional
-
 FIND BETTER PLACE FOR QUERY PARAMS and Scroll to top
 
 
