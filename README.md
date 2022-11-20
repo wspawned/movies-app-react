@@ -2,10 +2,6 @@
 
 [Deployed project link](https://main.d9k5wnto5btwe.amplifyapp.com/)
 
-# Notes
-
-
-
 ## API url
 
 https://developers.themoviedb.org/3/getting-started/introduction
@@ -51,15 +47,27 @@ TRY this one with redux next time [Connected React Router](https://github.com/su
 ```
 import { useNavigate, redirect, useLocation } from 'react-router-dom';
 ```
-# handle TS later
+# Notes
 
-Mixed Content: The page at URL was loaded over HTTPS, but requested an insecure resource URL.
+Mixed Content: The page at URL was loaded over HTTPS, but requested an insecure resource URL.This request has been blocked; the content must be served over HTTPS
 
-This request has been blocked; the content must be served over HTTPS
-
-Fixed by changing HTML
+Mixed Content is fixed by changing HTML
 ```
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+```
+
+async Thunk gets parameters as destructuring
+
+```
+dispatch(getGenreMovies( {genreId, paramsPage} ))
+```
+```
+export const getGenreMovies = createAsyncThunk(
+  "genreMovies/get",
+  async ({genreId, paramsPage}) => {
+  // API call
+  }
+);
 ```
 
 FIND BETTER PLACE FOR QUERY PARAMS and Scroll to top

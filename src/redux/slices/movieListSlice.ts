@@ -4,12 +4,16 @@ import type { GenreMoviesResult } from "../actions/getGenreMovies";
 
 const INITIAL_STATE = {
   movies: [] as GenreMoviesResult[],
+  page: 1,
 };
 
 export const movieListSlice = createSlice({
   name: "movieList",
   initialState: INITIAL_STATE,
   reducers: {
+    increasePage: (state) => {
+      state.page = state.page +1
+    }
   },
   extraReducers: (builder) => {
     // Add reducers for additional action types here, and handle loading state as needed
@@ -19,3 +23,5 @@ export const movieListSlice = createSlice({
     })
   },
 })
+
+export const { increasePage } = movieListSlice.actions;

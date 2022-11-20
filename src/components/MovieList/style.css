@@ -14,3 +14,7 @@
   align-items: center;
   margin: auto;
 }
+
+.next-button {
+  z-index: 20;
+}
