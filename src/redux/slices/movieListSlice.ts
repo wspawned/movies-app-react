@@ -13,7 +13,13 @@ export const movieListSlice = createSlice({
   reducers: {
     increasePage: (state) => {
       state.page = state.page +1
-    }
+    },
+    decreasePage: (state) => {
+      state.page = state.page -1
+    },
+    resetPage: (state) => {
+      state.page = INITIAL_STATE.page
+    },
   },
   extraReducers: (builder) => {
     // Add reducers for additional action types here, and handle loading state as needed
@@ -25,3 +31,6 @@ export const movieListSlice = createSlice({
 })
 
 export const { increasePage } = movieListSlice.actions;
+export const { decreasePage } = movieListSlice.actions;
+export const { resetPage } = movieListSlice.actions;
+

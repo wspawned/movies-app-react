@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
 import { RootState } from '../../redux/store';
 import { setSelectedMenuItem } from '../../redux/slices/generalSlice';
+import { resetPage } from '../../redux/slices/movieListSlice';
 
 
 
@@ -37,7 +38,10 @@ function Menu() {
       {staticCategories.map((category: any) => {
         return (
           <p
-            onClick={() => dispatch(setSelectedMenuItem(category))}
+            onClick={() => {
+              dispatch(setSelectedMenuItem(category));
+              dispatch(resetPage());
+            }}
             key={category.id}
           >
             {category.name}
@@ -49,7 +53,10 @@ function Menu() {
       {genres.map((genre: genre) => {
         return (
           <p
-            onClick={() => dispatch(setSelectedMenuItem(genre))}
+            onClick={() => {
+              dispatch(setSelectedMenuItem(genre));
+              dispatch(resetPage());
+            }}
             key={genre.id}
           >
             {genre.name}

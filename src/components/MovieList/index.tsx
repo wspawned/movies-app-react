@@ -5,7 +5,7 @@ import { useSearchParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { getGenreMovies } from '../../redux/actions/getGenreMovies';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
-import { increasePage } from '../../redux/slices/movieListSlice';
+import { decreasePage, increasePage } from '../../redux/slices/movieListSlice';
 
 const MovieList = () => {
 
@@ -54,10 +54,14 @@ const MovieList = () => {
           );
         })}
 
-      <button
-      className='next-button'
-      onClick={()=> dispatch(increasePage()) }
-      >next</button>
+        <button
+        onClick={()=> dispatch(decreasePage()) }
+        >{`${movieList.page}  => ${movieList.page -1}`}</button>
+
+        <button
+        onClick={()=> dispatch(increasePage()) }
+        >{`${movieList.page}  => ${movieList.page +1}`}</button>    
+
       </div>
 
     </>
