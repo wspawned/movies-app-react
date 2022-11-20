@@ -6,6 +6,8 @@ import { useEffect } from 'react';
 import { getGenreMovies } from '../../redux/actions/getGenreMovies';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
 import { decreasePage, increasePage } from '../../redux/slices/movieListSlice';
+import MovieListItem from './MovieListItem/index';
+import type { GenreMoviesResult } from '../../redux/actions/getGenreMovies';
 
 const MovieList = () => {
 
@@ -42,25 +44,31 @@ const MovieList = () => {
       <h2>MOVIES</h2>
       </div>
       
-      <div className="home-list">
+      <div className="movie-list">
         {movieList.movies.map((movie, index) => {
           return (
-            <div className="list-item" key={index}>
+            
               
-              {
-                movie.title
-              }
-            </div>
+              <MovieListItem
+              /* @ts-ignore */ 
+              movie = {movie}
+              key = {index}
+              />
+
+            
           );
         })}
 
-        <button
-        onClick={()=> dispatch(decreasePage()) }
-        >{`${movieList.page}  => ${movieList.page -1}`}</button>
+        <div className='page-buttons'>
+          <button
+          onClick={()=> dispatch(decreasePage()) }
+          >{`${movieList.page -1} <= ${movieList.page}`}</button>
 
-        <button
-        onClick={()=> dispatch(increasePage()) }
-        >{`${movieList.page}  => ${movieList.page +1}`}</button>    
+          <button
+          onClick={()=> dispatch(increasePage()) }
+          >{`${movieList.page}  => ${movieList.page +1}`}</button>   
+        </div>
+ 
 
       </div>
 

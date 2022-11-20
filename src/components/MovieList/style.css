@@ -1,17 +1,13 @@
-.home-list {
+.movie-list {
   display: flex;
   flex-wrap: wrap;
 }
 
-.list-item {
-  flex: 1 0 21%;
-  margin: 5px;
-  height: 100px;
-  background-color: blue;
-}
-
 .category-header {
-  align-items: center;
+  width: 1vh;
   margin: auto;
 }
 
+.page-buttons {
+  display: inline-flex;
+}
