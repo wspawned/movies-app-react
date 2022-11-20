@@ -7,12 +7,12 @@ function App() {
 
   return (
     <div className="App">
-      <div className='side-drawer'>
+
         <Menu/>
-      </div>
-      <div className='home-list'>
+
+
         <MovieList/>
-      </div>
+
     </div>
   );
 }

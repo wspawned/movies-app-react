@@ -38,10 +38,11 @@ const MovieList = () => {
 
 
   return (
-    <>
+    <div className='home-list'>
+      
       <div className='category-header' >
-      <h1>{selectedMenuItem.name}</h1>
-      <h2>MOVIES</h2>
+        <h1>{selectedMenuItem.name}</h1>
+        <h2>MOVIES</h2>
       </div>
       
       <div className="movie-list">
@@ -58,8 +59,9 @@ const MovieList = () => {
             
           );
         })}
+      </div>
 
-        <div className='page-buttons'>
+      <div className='page-buttons'>
           <button
           onClick={()=> dispatch(decreasePage()) }
           >{`${movieList.page -1} <= ${movieList.page}`}</button>
@@ -68,11 +70,8 @@ const MovieList = () => {
           onClick={()=> dispatch(increasePage()) }
           >{`${movieList.page}  => ${movieList.page +1}`}</button>   
         </div>
- 
 
-      </div>
-
-    </>
+    </div>
   );
 };
 

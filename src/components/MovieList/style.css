@@ -1,3 +1,8 @@
+.home-list {
+  flex:1;
+  top: 0;
+}
+
 .movie-list {
   display: flex;
   flex-wrap: wrap;
@@ -9,5 +14,10 @@
 }
 
 .page-buttons {
-  display: inline-flex;
+  display: flex;
+  justify-content: space-around;
+}
+
+button {
+  height: 40px;
 }
