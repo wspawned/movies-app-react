@@ -2,6 +2,11 @@
   flex-direction: column;
   display: grid;
   margin: 5px;
-  max-width: 342;
-  max-height: 513;
+  max-width: 20%;
+  max-height: 10%;
+}
+
+.list-item > img {
+  max-width: 100%;
+  max-height: 100%;
 }

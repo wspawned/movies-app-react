@@ -41,8 +41,8 @@ const MovieList = () => {
     <div className='home-list'>
       
       <div className='category-header' >
-        <h1>{selectedMenuItem.name}</h1>
-        <h2>MOVIES</h2>
+        <h1>{selectedMenuItem.name} MOVIES</h1>
+        
       </div>
       
       <div className="movie-list">
