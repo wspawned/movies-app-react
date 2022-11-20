@@ -2,10 +2,12 @@ import  thunkMiddleWare  from 'redux-thunk';
 import {  combineReducers, configureStore } from '@reduxjs/toolkit';
 import { generalSlice } from './slices/generalSlice';
 import { movieListSlice } from './slices/movieListSlice';
+import { movieSlice } from './slices/movieSlice';
 
 const rootReducer = combineReducers({
   general: generalSlice.reducer,
   movieList: movieListSlice.reducer,
+  movie: movieSlice.reducer,
 })
 
 const store = configureStore({
