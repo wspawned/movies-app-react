@@ -1,5 +1,5 @@
 import './style.css';
-import { redirect, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 //@ts-ignore

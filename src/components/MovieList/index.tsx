@@ -1,78 +1,28 @@
-import { useSelector } from 'react-redux';
-import { RootState } from '../../redux/store';
+import MovieListItem from './MovieListItem';
 import './style.css';
-import { useSearchParams } from 'react-router-dom';
-import { useEffect } from 'react';
-import { getGenreMovies } from '../../redux/actions/getGenreMovies';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
-import { decreasePage, increasePage } from '../../redux/slices/movieListSlice';
-import MovieListItem from './MovieListItem/index';
-import type { GenreMoviesResult } from '../../redux/actions/getGenreMovies';
 
-const MovieList = () => {
-
-  const selectedMenuItem = useSelector((state:RootState)=>state.general.selectedMenuItem);
-  const movieList = useAppSelector((state) => state.movieList );
-
-  const dispatch = useAppDispatch();
-
-  const [searchParams, setSearchParams] = useSearchParams();
+//@ts-ignore
+const MovieList = ( {movies} ) => {
   
-
-  useEffect( () => {
-    setSearchParams({category:`${selectedMenuItem.name}`,id: `${selectedMenuItem.id}`, page:`${movieList.page}`});
-    // console.log(selectedMenuItem)
-
-  }, [selectedMenuItem, movieList] )
-
-  
-  
-  useEffect( () => {
-    const genreId = searchParams.get("id");
-    const paramsPage = searchParams.get("page")
-    //@ts-ignore
-    dispatch(getGenreMovies( {genreId, paramsPage} ));
-    // console.log( paramsPage)
-
-  }, [searchParams, dispatch ] )
-
 
   return (
-    <div className='home-list'>
-      
-      <div className='category-header' >
-        <h1>{selectedMenuItem.name} MOVIES</h1>
+    <div className="movie-list">
+      {/* @ts-ignore */ }
+    {movies.map((movie, index) => {
+      return (
         
-      </div>
-      
-      <div className="movie-list">
-        {movieList.movies.map((movie, index) => {
-          return (
-            
-              
-              <MovieListItem
-              /* @ts-ignore */ 
-              movie = {movie}
-              key = {index}
-              />
+          
+          <MovieListItem
+          /* @ts-ignore */ 
+          movie = {movie}
+          key = {index}
+          />
 
-            
-          );
-        })}
-      </div>
-
-      <div className='page-buttons'>
-          <button
-          onClick={()=> dispatch(decreasePage()) }
-          >{`${movieList.page -1} <= ${movieList.page}`}</button>
-
-          <button
-          onClick={()=> dispatch(increasePage()) }
-          >{`${movieList.page}  => ${movieList.page +1}`}</button>   
-        </div>
-
-    </div>
-  );
+        
+      );
+    })}
+  </div>
+  )
 };
 
 export default MovieList;
