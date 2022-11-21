@@ -16,18 +16,22 @@ const MovieListItem = ( {movie, key} ) => {
   }
 
   return (
-    <Link to={`/movie/${id}`} >
-        <div className="list-item" 
+
+
+    <div className="list-item" 
     key={key}
     // onClick={()=> redirect(`/movie/${id}`) }
     >
+    
       {title}
+    <Link to={`/movie/${id}`} >
       <img
+      className='list-poster'
       src={`${base_url}w${W342H513.WIDTH}${poster_path}`}
       alt={`${title} Poster`}
       />
-    </div>
     </Link>
+    </div>
 
 
   );

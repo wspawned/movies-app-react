@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from "../../redux/hooks/hooks";
 import { getMovie } from "../../redux/actions/getMovie";
@@ -24,6 +24,11 @@ const Movie = () => {
 
   return (
     <div style={{marginLeft  :"80px"}} >
+      <header>
+        <Link to="/"> <h1>BACK TO HOME</h1> </Link>
+      </header>
+      
+
       <p>{`loookin for this ?  ===>   id= ${id}`}</p>
       <p>{`  ${title}  `}</p>
 
