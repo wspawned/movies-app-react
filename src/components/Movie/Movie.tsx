@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useAppDispatch } from "../../redux/hooks/hooks";
 import { getMovie } from "../../redux/actions/getMovie";
 import MovieInfo from "../MovieInfo";
+import { getRecommendedMovies } from "../../redux/actions/getRecommendedMovies";
 
 const Movie = () => {
 
@@ -13,7 +14,9 @@ const Movie = () => {
   
   useEffect(() => {
     //@ts-ignore
-    dispatch(getMovie(id))
+    dispatch( getMovie(id) );
+    //@ts-ignore
+    dispatch( getRecommendedMovies(id) );
   },[dispatch,id])
 
 

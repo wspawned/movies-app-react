@@ -8,7 +8,6 @@ const MovieListItem = ( {movie, key} ) => {
   
   const base_url = 'https://image.tmdb.org/t/p/';
   const { title, poster_path, vote_average, vote_count, id } = movie;
-  console.log(id)
 
   const W342H513 = {
     WIDTH: "342",

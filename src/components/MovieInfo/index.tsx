@@ -6,7 +6,7 @@ const MovieInfo = () => {
 
   const movie = useAppSelector(state => state.movie);
   //@ts-ignore
-  const { title, tagline, runtime, release_date, genres, overview, homepage, imdb_id, poster_path } = movie.movie;
+  const { title, tagline, runtime, release_date, genres, overview, homepage, imdb_id, poster_path } = movie.movieInfo;
   const IMDB_base_url = "https://www.imdb.com/title/";
   const base_url:string = 'https://image.tmdb.org/t/p/';
 
