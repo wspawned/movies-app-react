@@ -1,4 +1,4 @@
-import { Link, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Menu from '../Menu';
 import Movie from '../Movie/Movie';
 import MovieList from '../MovieList';

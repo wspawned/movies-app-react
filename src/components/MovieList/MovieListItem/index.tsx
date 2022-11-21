@@ -40,3 +40,4 @@ const MovieListItem = ( {movie, key} ) => {
 export default MovieListItem;
 
 // src={`${base_url}w${W342H513.WIDTH}${poster_path}`}
+// /?category=Popular&id=popular&page=1

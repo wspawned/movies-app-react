@@ -1,0 +1,8 @@
+.movie-info {
+  display: flex;
+  padding: 100px;
+}
+
+.summary {
+  padding-left: 40px;
+}
