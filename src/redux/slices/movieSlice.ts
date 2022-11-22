@@ -1,10 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getCredits } from "../actions/getCredits";
 import { getMovie } from "../actions/getMovie";
 import { getRecommendedMovies } from "../actions/getRecommendedMovies";
 
 const INITIAL_STATE = {
   movieInfo: [],
   recommendedMovies: [],
+  cast: [],
 };
 
 export const movieSlice = createSlice({
@@ -22,6 +24,10 @@ export const movieSlice = createSlice({
     builder
     .addCase( getRecommendedMovies.fulfilled, (state, action) => {
       state.recommendedMovies = action.payload
+    })
+    builder
+    .addCase( getCredits.fulfilled, (state, action) => {
+      state.cast = action.payload.cast
     })
   },
 })

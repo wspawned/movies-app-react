@@ -4,8 +4,9 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks/hooks";
 import { getMovie } from "../../redux/actions/getMovie";
 import MovieInfo from "../MovieInfo";
 import { getRecommendedMovies } from "../../redux/actions/getRecommendedMovies";
-import MovieList from "../MovieList";
 import './style.css';
+import RecommendedMovieList from "../RecommendedMovieList";
+import { getCredits } from "../../redux/actions/getCredits";
 
 const Movie = () => {
 
@@ -20,13 +21,16 @@ const Movie = () => {
     dispatch( getMovie(id) );
     //@ts-ignore
     dispatch( getRecommendedMovies(id) );
+    //@ts-ignore
+    dispatch( getCredits(id) );
   },[dispatch,id])
 
 
   return (
     <div className="movie-page">
       <MovieInfo/>
-      <MovieList movies={recommendedMovies} />
+      {/*@ts-ignore*/}
+      <RecommendedMovieList movies  ={recommendedMovies} />
     </div>
   );
 };

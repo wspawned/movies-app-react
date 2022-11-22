@@ -3,6 +3,14 @@
   padding: 100px;
 }
 
+.artwork {
+  display: block;
+}
+
+.artwork > img {
+  display: block;
+}
+
 .summary {
   padding-left: 40px;
 }

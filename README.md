@@ -74,6 +74,8 @@ FIND BETTER PLACE FOR QUERY PARAMS and Scroll to top
 
 WHAT ABOUT WHEN CATEGORY ANF PAGE ARE REACHED FROM BOOKMARKS ?
 
+CHECK getCredits later
+
 add trailer for Movies
 
 fix getGenreMovies while in Movie comp
