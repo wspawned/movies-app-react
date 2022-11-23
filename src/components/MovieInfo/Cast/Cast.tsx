@@ -4,7 +4,7 @@ import './style.css';
 //@ts-ignore
 const Cast = ({cast,base_url}) => {
 
-  const castLimited = (cast.length > 8) ? cast.slice(0,10) : cast ;
+  const castLimited = (cast.length > 8) ? cast.slice(0,8) : cast ;
 
   return (
     

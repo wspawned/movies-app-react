@@ -49,7 +49,7 @@ const MovieInfo = () => {
         <p><a href={`${homepage}`}>Website</a></p>
         <p><a href={`${IMDB_base_url + imdb_id}`}>IMDB</a></p>
 
-        <Link to="/"><h1>BACK TO HOME</h1></Link>
+        
         
       </div>
     </div>

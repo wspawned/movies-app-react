@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from "../../redux/hooks/hooks";
 import { getMovie } from "../../redux/actions/getMovie";
@@ -28,6 +28,7 @@ const Movie = () => {
 
   return (
     <div className="movie-page">
+      <Link to="/"><h1 style={{textAlign: "center"}} >BACK TO HOME</h1></Link>
       <MovieInfo/>
       {/*@ts-ignore*/}
       <RecommendedMovieList movies  ={recommendedMovies} />
