@@ -7,7 +7,7 @@ import { getGenreMovies } from '../../redux/actions/getGenreMovies';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
 import { decreasePage, increasePage } from '../../redux/slices/movieListSlice';
 import MovieList from '../MovieList';
-import { setSelectedMenuItem } from '../../redux/slices/generalSlice';
+import { setSelectedMenuItem, STATIC_MOVIE_CATEGORIES } from '../../redux/slices/generalSlice';
 
 const Home = () => {
 
@@ -19,15 +19,21 @@ const Home = () => {
   
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const paramsPage = Number(searchParams.get("page"));
-  const paramsId = searchParams.get("id");
-  const paramsCategory = searchParams.get("category");
+  console.log("Home URL main object>>>" + searchParams);
+
+  const paramsPage = Number(searchParams.get("page")) || 1;
+  const paramsId = searchParams.get("id") || STATIC_MOVIE_CATEGORIES[0].name;
+  const paramsCategoryName = searchParams.get("category") || STATIC_MOVIE_CATEGORIES[0].id;
+
+  console.log("Home URL parse>>> paramsPage:" + paramsPage + " paramsId:" + paramsId + " paramsCategory:" + paramsCategoryName);
   
   useEffect( () => {
     
   
       //@ts-ignore
       dispatch(getGenreMovies( {paramsId, paramsPage} ));
+
+      dispatch(setSelectedMenuItem({name:paramsCategoryName}))
 
   }, [searchParams, dispatch ] )
 
@@ -36,7 +42,7 @@ const Home = () => {
     <div className='home-list'>
       
       <div className='category-header' >
-        <h1>{selectedMenuItem.name} MOVIES</h1>
+        <h1>{paramsCategoryName} MOVIES</h1>
         
       </div>
       <MovieList movies={movieList.movies} />
@@ -45,7 +51,7 @@ const Home = () => {
           <button
           onClick={()=> {
             const newPage =  Number(paramsPage) -1 ;
-            setSearchParams({category:`${paramsCategory}`,id:`${paramsId}`, page:`${newPage}`});
+            setSearchParams({category:`${paramsCategoryName}`,id:`${paramsId}`, page:`${newPage}`});
             dispatch(decreasePage());
           } }
           >{`${movieList.page -1} <= ${movieList.page}`}</button>
@@ -53,7 +59,7 @@ const Home = () => {
           <button
             onClick={()=> {
               const newPage =  Number(paramsPage) +1 ;
-              setSearchParams({category:`${paramsCategory}`,id:`${paramsId}`, page:`${newPage}`});
+              setSearchParams({category:`${paramsCategoryName}`,id:`${paramsId}`, page:`${newPage}`});
               dispatch(increasePage());
             } }
           >{`${movieList.page}  => ${movieList.page +1}`}</button>   

@@ -12,7 +12,9 @@ const Movie = () => {
 
   const movie = useAppSelector((state) => state.movie )
 
-  const {id} = useParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const id = Number(searchParams.get("id"));
+  console.log("Movie URL parse>>>" + JSON.stringify(id));
   
 
   const dispatch = useAppDispatch();

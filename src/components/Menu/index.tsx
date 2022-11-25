@@ -37,8 +37,8 @@ function Menu() {
           <p
             onClick={() => {
               navigate(`/?category=${category.name}&id=${category.id}&page=1`);
-              dispatch(setSelectedMenuItem({name:category.name, id:category.id}));
-              dispatch(resetPage());
+              //dispatch(setSelectedMenuItem({name:category.name, id:category.id}));
+              //dispatch(resetPage());
             }}
             key={category.id}
           >
@@ -53,8 +53,8 @@ function Menu() {
           <p
             onClick={() => {
               navigate(`/?category=${genre.name}&id=${genre.id}&page=1`);
-              dispatch(setSelectedMenuItem({name:genre.name, id:genre.id}));
-              dispatch(resetPage());
+              //dispatch(setSelectedMenuItem({name:genre.name, id:genre.id}));
+              //dispatch(resetPage());
             }}
             key={genre.id}
           >

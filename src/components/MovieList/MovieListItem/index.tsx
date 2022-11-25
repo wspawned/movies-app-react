@@ -29,7 +29,7 @@ const MovieListItem = ( {movie, key} ) => {
   
     onClick={()=> {
       dispatch(resetMovie());
-      navigate( `/movie/${id}` );
+      navigate( `/movie/?id=${id}` );
     }}
     >
     
