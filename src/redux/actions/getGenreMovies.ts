@@ -33,10 +33,10 @@ const staticIds = STATIC_MOVIE_CATEGORIES.map((elm)=> {return elm.id} );
 export const getGenreMovies = createAsyncThunk(
   "genreMovies/get",
   //@ts-ignore
-  async ({genreId, paramsPage}) => {
+  async ({paramsId, paramsPage}) => {
     
-    if(staticIds.includes(genreId)) {
-      const res = await tmdbAPI.get(`/3/movie/${genreId}`, {
+    if(staticIds.includes(paramsId)) {
+      const res = await tmdbAPI.get(`/3/movie/${paramsId}`, {
         params: {
           page: paramsPage,
         }
@@ -45,7 +45,7 @@ export const getGenreMovies = createAsyncThunk(
     } else {
       const res = await tmdbAPI.get("/3/discover/movie/", {
         params: {
-          with_genres: genreId,
+          with_genres: paramsId,
           page: paramsPage,
         }
       });

@@ -13,7 +13,9 @@ export const movieSlice = createSlice({
   name: "movie",
   initialState: INITIAL_STATE,
   reducers: {
-
+    resetMovie: (state) => {
+      state = INITIAL_STATE
+    },
   },
   extraReducers: (builder) => {
     // Add reducers for additional action types here, and handle loading state as needed
@@ -31,3 +33,5 @@ export const movieSlice = createSlice({
     })
   },
 })
+
+export const { resetMovie } = movieSlice.actions;

@@ -6,33 +6,28 @@ import { useEffect } from 'react';
 import { getGenreMovies } from '../../redux/actions/getGenreMovies';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
 import { decreasePage, increasePage } from '../../redux/slices/movieListSlice';
-import type { GenreMoviesResult } from '../../redux/actions/getGenreMovies';
 import MovieList from '../MovieList';
+import { setSelectedMenuItem } from '../../redux/slices/generalSlice';
 
 const Home = () => {
 
   const selectedMenuItem = useSelector((state:RootState)=>state.general.selectedMenuItem);
-  const movieList = useAppSelector((state) => state.movieList );
+  const movieList = useAppSelector((state:RootState) => state.movieList );
+  const movie = useAppSelector((state:RootState) => state.movie.movieInfo );
 
   const dispatch = useAppDispatch();
-
+  
   const [searchParams, setSearchParams] = useSearchParams();
-  
 
-  useEffect( () => {
-    setSearchParams({category:`${selectedMenuItem.name}`,id: `${selectedMenuItem.id}`, page:`${movieList.page}`});
-    // console.log(selectedMenuItem)
-
-  }, [selectedMenuItem, movieList] )
-
-  
+  const paramsPage = Number(searchParams.get("page"));
+  const paramsId = searchParams.get("id");
+  const paramsCategory = searchParams.get("category");
   
   useEffect( () => {
-    const genreId = searchParams.get("id");
-    const paramsPage = searchParams.get("page")
-    //@ts-ignore
-    dispatch(getGenreMovies( {genreId, paramsPage} ));
-    // console.log( paramsPage)
+    
+  
+      //@ts-ignore
+      dispatch(getGenreMovies( {paramsId, paramsPage} ));
 
   }, [searchParams, dispatch ] )
 
@@ -44,16 +39,23 @@ const Home = () => {
         <h1>{selectedMenuItem.name} MOVIES</h1>
         
       </div>
-      {/* @ts-ignore */}
       <MovieList movies={movieList.movies} />
 
       <div className='page-buttons'>
           <button
-          onClick={()=> dispatch(decreasePage()) }
+          onClick={()=> {
+            const newPage =  Number(paramsPage) -1 ;
+            setSearchParams({category:`${paramsCategory}`,id:`${paramsId}`, page:`${newPage}`});
+            dispatch(decreasePage());
+          } }
           >{`${movieList.page -1} <= ${movieList.page}`}</button>
 
           <button
-          onClick={()=> dispatch(increasePage()) }
+            onClick={()=> {
+              const newPage =  Number(paramsPage) +1 ;
+              setSearchParams({category:`${paramsCategory}`,id:`${paramsId}`, page:`${newPage}`});
+              dispatch(increasePage());
+            } }
           >{`${movieList.page}  => ${movieList.page +1}`}</button>   
         </div>
 
