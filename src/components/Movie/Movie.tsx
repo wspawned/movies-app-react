@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useSearchParams } from "react-router-dom";
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from "../../redux/hooks/hooks";
 import { getMovie } from "../../redux/actions/getMovie";
@@ -10,26 +10,31 @@ import { getCredits } from "../../redux/actions/getCredits";
 
 const Movie = () => {
 
+  const movie = useAppSelector((state) => state.movie )
+
   const {id} = useParams();
+  
+
   const dispatch = useAppDispatch();
   const recommendedMovies = useAppSelector((state) => state.movie.recommendedMovies )
 
   // need trailer still 
   
-  useEffect(() => {
+  useEffect(  () => {
     //@ts-ignore
     dispatch( getMovie(id) );
     //@ts-ignore
     dispatch( getRecommendedMovies(id) );
     //@ts-ignore
     dispatch( getCredits(id) );
-  },[dispatch,id])
+  },[dispatch,id ])
 
 
   return (
     <div className="movie-page">
-      <Link to="/"><h1 style={{textAlign: "center"}} >BACK TO HOME</h1></Link>
+      
       <MovieInfo/>
+      <h1 style={{textAlign: "center"}} >RECOMMENDED MOVIES</h1>
       {/*@ts-ignore*/}
       <RecommendedMovieList movies  ={recommendedMovies} />
     </div>

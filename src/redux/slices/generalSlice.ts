@@ -1,21 +1,33 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getGenres } from "../actions/getGenres";
 
-type staticMovieCategories = {
+type staticMovieCategory = {
   id:string,
   name:string,
 };
 
-export const STATIC_MOVIE_CATEGORIES:staticMovieCategories[] = [
+export const STATIC_MOVIE_CATEGORIES:staticMovieCategory[] = [
   {id: 'popular', name: 'Popular'},
   {id: 'top_rated', name: 'Top Rated'},
   {id: 'upcoming', name: 'Upcoming'}
 ];
 
-const INITIAL_STATE = {
+type GeneralState = {
+  staticCategories: staticMovieCategory[],
+  genres: [],
+  selectedMenuItem: {
+    name: string,
+    id:string,
+  } ,
+}
+
+const INITIAL_STATE: GeneralState = {
   staticCategories: STATIC_MOVIE_CATEGORIES,
   genres: [],
-  selectedMenuItem: STATIC_MOVIE_CATEGORIES[0] ,
+  selectedMenuItem: {
+    name: "",
+    id:"",
+  } ,
 };
 
 export const generalSlice = createSlice({

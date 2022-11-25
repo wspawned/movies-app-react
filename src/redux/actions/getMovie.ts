@@ -3,6 +3,7 @@ import { tmdbAPI } from "../../api/tmdbAPI";
 
 export const getMovie = createAsyncThunk(
   "movie/get",
+  //@ts-ignore
   async (id) => {
       const res = await tmdbAPI.get(`/3/movie/${id}`, {
         params: {
