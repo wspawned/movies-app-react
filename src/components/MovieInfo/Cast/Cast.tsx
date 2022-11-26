@@ -1,8 +1,9 @@
 import PersonAvatar from "./PersonAvatar/PersonAvatar";
 import './style.css';
+import type { CastType } from "../../../redux/actions/getCredits";
 
-//@ts-ignore
-const Cast = ({cast,base_url}) => {
+
+const Cast:React.FC<{cast:CastType[],base_url:string}> = ({cast,base_url}) => {
 
   const castLimited = (cast.length > 8) ? cast.slice(0,8) : cast ;
 
@@ -10,7 +11,6 @@ const Cast = ({cast,base_url}) => {
     
     <div className="cast" >
       <p>THE CAST</p>
-      {/*//@ts-ignore */}
       {castLimited.map((person)=>{return(
         <PersonAvatar 
         src={`${base_url}w185${person.profile_path}`}

@@ -9,19 +9,20 @@ export const getRecommendedMovies = createAsyncThunk(
           page: 1,
         }
       });
-      return res.data.results;
+      console.log(res.data)
+      return res.data;
   }
 );
 
 
-export interface RecommendedMovies {
+export interface RecommendedMoviesApiType {
   page: number;
-  results: Result[];
+  results: RecommendedMovieType[];
   total_pages: number;
   total_results: number;
 }
 
-interface Result {
+export interface RecommendedMovieType {
   adult: boolean;
   backdrop_path?: string;
   id: number;

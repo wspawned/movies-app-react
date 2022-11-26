@@ -3,7 +3,6 @@ import './style.css';
 
 //@ts-ignore
 const MovieList = ( {movies} ) => {
-  
 
   return (
     <div className="movie-list">

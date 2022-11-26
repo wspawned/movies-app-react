@@ -6,9 +6,12 @@ const MovieInfo = () => {
 
   const movie = useAppSelector(state => state.movie);
   const cast = movie.cast;
+  const info = movie.movieInfo;
 
+
+  //define movieInfo as object in slice
   //@ts-ignore
-  const { title, tagline, runtime, release_date, genres, overview, homepage, imdb_id, poster_path } = movie.movieInfo;
+  const { title, tagline, runtime, release_date, genres, overview, homepage, imdb_id, poster_path } = info ;
   const IMDB_base_url = "https://www.imdb.com/title/";
   const base_url:string = 'https://image.tmdb.org/t/p/';
 
@@ -38,7 +41,7 @@ const MovieInfo = () => {
         <p>ABOUT</p>
         <p>{`  ${overview}  `}</p>
 
-        {/*@ts-ignore*/}
+        
         <Cast cast={cast}
         base_url={base_url} 
         />

@@ -1,7 +1,7 @@
 import "./style.css"
 
-//@ts-ignore
-const PersonAvatar = ({src,alt,id}) => {
+
+const PersonAvatar:React.FC<{src:string,alt:string,id:number}> = ({src,alt,id}) => {
 
   return(
   

@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Cast, getCredits } from "../actions/getCredits";
-import { getMovie, MovieInfo } from "../actions/getMovie";
-import { getRecommendedMovies, RecommendedMovies } from "../actions/getRecommendedMovies";
+import { getCredits, CastType } from "../actions/getCredits";
+import { getMovie, MovieInfoType } from "../actions/getMovie";
+import { getRecommendedMovies, RecommendedMovieType } from "../actions/getRecommendedMovies";
 
 interface MovieState {
-  movieInfo: MovieInfo[] ;
-  recommendedMovies: RecommendedMovies[] ;
-  cast: Cast[] ;
+  movieInfo: MovieInfoType[] ;
+  recommendedMovies: RecommendedMovieType[] ;
+  cast: CastType[] ;
 }
 
 const INITIAL_STATE: MovieState = {
@@ -30,7 +30,7 @@ export const movieSlice = createSlice({
     })
     builder
     .addCase( getRecommendedMovies.fulfilled, (state, action) => {
-      state.recommendedMovies = action.payload
+      state.recommendedMovies = action.payload.results
     })
     builder
     .addCase( getCredits.fulfilled, (state, action) => {

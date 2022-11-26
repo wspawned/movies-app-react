@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getGenreMovies } from "../actions/getGenreMovies";
-import type { GenreMovie } from "../actions/getGenreMovies";
+import type { GenreMoviesType } from "../actions/getGenreMovies";
 
 interface GenreMoviesState {
-  movies: GenreMovie[];
+  movies: GenreMoviesType[];
 }
 
 const INITIAL_STATE:GenreMoviesState = {

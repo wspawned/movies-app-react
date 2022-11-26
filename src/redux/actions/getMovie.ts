@@ -14,7 +14,7 @@ export const getMovie = createAsyncThunk(
 );
 
 
-export interface MovieInfo {
+export interface MovieInfoType {
   adult: boolean;
   backdrop_path: string;
   belongs_to_collection: Belongstocollection;

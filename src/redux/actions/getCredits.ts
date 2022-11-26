@@ -17,7 +17,7 @@ export const getCredits = createAsyncThunk(
 
 interface Credits {
   id: number;
-  cast: Cast[];
+  cast: CastType[];
   crew: Crew[];
 }
 
@@ -35,7 +35,7 @@ interface Crew {
   job: string;
 }
 
-export interface Cast {
+export interface CastType {
   adult: boolean;
   gender: number;
   id: number;

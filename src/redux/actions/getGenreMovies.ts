@@ -2,30 +2,6 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { tmdbAPI } from "../../api/tmdbAPI";
 import { STATIC_MOVIE_CATEGORIES } from "../slices/generalSlice";
 
-export type GenreApiResponse = {
-  page: number;
-  results: GenreMovie[];
-  total_pages: number;
-  total_results: number;
-}
-
-export type GenreMovie = {
-  adult: boolean;
-  backdrop_path: string;
-  genre_ids: number[];
-  id: number;
-  original_language: string;
-  original_title: string;
-  overview: string;
-  popularity: number;
-  poster_path: string;
-  release_date: string;
-  title: string;
-  video: boolean;
-  vote_average: number;
-  vote_count: number;
-}
-
 const staticIds = STATIC_MOVIE_CATEGORIES.map((elm)=> {return elm.id} );
 
 export const getGenreMovies = createAsyncThunk(
@@ -50,3 +26,28 @@ export const getGenreMovies = createAsyncThunk(
     }
   }
 );
+
+
+export type GenreMoviesApiResponse = {
+  page: number;
+  results: GenreMoviesType[];
+  total_pages: number;
+  total_results: number;
+}
+
+export type GenreMoviesType = {
+  adult: boolean;
+  backdrop_path: string;
+  genre_ids: number[];
+  id: number;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  release_date: string;
+  title: string;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
+}
