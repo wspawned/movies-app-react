@@ -1,18 +1,19 @@
 import MovieListItem from './MovieListItem';
 import './style.css';
+import type { GenreMoviesType } from '../../redux/actions/getGenreMovies';
+import type { RecommendedMovieType } from '../../redux/actions/getRecommendedMovies';
 
-//@ts-ignore
-const MovieList = ( {movies} ) => {
+
+const MovieList:React.FC<{movies: GenreMoviesType[] | RecommendedMovieType[] }> = ( {movies} ) => {
 
   return (
     <div className="movie-list">
-      {/* @ts-ignore */ }
+    
     {movies.map((movie, index) => {
       return (
-        
           
           <MovieListItem
-          /* @ts-ignore */ 
+          
           movie = {movie}
           key = {index}
           />

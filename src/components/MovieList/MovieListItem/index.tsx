@@ -2,10 +2,10 @@ import './style.css';
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from '../../../redux/hooks/hooks';
 import { resetMovie } from '../../../redux/slices/movieSlice';
+import type { GenreMoviesType } from '../../../redux/actions/getGenreMovies';
+import type { RecommendedMovieType } from '../../../redux/actions/getRecommendedMovies';
 
-
-//@ts-ignore
-const MovieListItem = ( {movie, key} ) => {
+const MovieListItem:React.FC<{movie:GenreMoviesType|RecommendedMovieType, key:number}> = ( {movie, key} ) => {
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -39,7 +39,6 @@ const MovieListItem = ( {movie, key} ) => {
       alt={`${title} Poster`}
       />
     </div>
-
 
   );
 };
