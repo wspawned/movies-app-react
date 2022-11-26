@@ -16,28 +16,28 @@ function Menu() {
       <h2>Discover</h2>
       {staticCategories.map((category) => {
         return (
-          <p
+          <div className='side-drawer-item'
             onClick={() => {
               navigate(`/?category=${category.name}&id=${category.id}&page=1`);
             }}
             key={category.id}
           >
             {category.name}
-          </p>
+          </div>
         );
       })}
 
       <h2>Genres</h2>
       {genres.map((genre) => {
         return (
-          <p
+          <div className='side-drawer-item'
             onClick={() => {
               navigate(`/?category=${genre.name}&id=${genre.id}&page=1`);
             }}
             key={genre.id}
           >
             {genre.name}
-          </p>
+          </div>
         );
       })}
     </div>
