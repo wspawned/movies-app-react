@@ -26,3 +26,8 @@ button {
   height: 30px;
   width: 80px;
 }
+
+.category-header{
+  text-shadow: 0 0 2px black;
+  color: #CC8F8F;
+}

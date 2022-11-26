@@ -27,7 +27,7 @@ const Home = () => {
     <div className='home-list'>
       
       <div className='category-header' >
-        <h1>{paramsCategoryName} MOVIES</h1>
+        <h1>{paramsCategoryName.toUpperCase()} MOVIES</h1>
         
       </div>
       <MovieList movies={movieList.movies} />
