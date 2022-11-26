@@ -1,9 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getCredits } from "../actions/getCredits";
-import { getMovie } from "../actions/getMovie";
-import { getRecommendedMovies } from "../actions/getRecommendedMovies";
+import { Cast, getCredits } from "../actions/getCredits";
+import { getMovie, MovieInfo } from "../actions/getMovie";
+import { getRecommendedMovies, RecommendedMovies } from "../actions/getRecommendedMovies";
 
-const INITIAL_STATE = {
+interface MovieState {
+  movieInfo: MovieInfo[] ;
+  recommendedMovies: RecommendedMovies[] ;
+  cast: Cast[] ;
+}
+
+const INITIAL_STATE: MovieState = {
   movieInfo: [],
   recommendedMovies: [],
   cast: [],
@@ -18,7 +24,6 @@ export const movieSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    // Add reducers for additional action types here, and handle loading state as needed
     builder
     .addCase( getMovie.fulfilled, (state, action) => {
       state.movieInfo = action.payload

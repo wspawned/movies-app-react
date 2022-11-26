@@ -1,5 +1,4 @@
 import { useAppSelector } from "../../redux/hooks/hooks";
-import { Link } from "react-router-dom";
 import './style.css';
 import Cast from "./Cast/Cast";
 
@@ -38,8 +37,6 @@ const MovieInfo = () => {
 
         <p>ABOUT</p>
         <p>{`  ${overview}  `}</p>
-
-        
 
         {/*@ts-ignore*/}
         <Cast cast={cast}

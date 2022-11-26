@@ -1,42 +1,27 @@
-import { useSelector } from 'react-redux';
-import { RootState } from '../../redux/store';
 import './style.css';
-import { useSearchParams } from 'react-router-dom';
+import { RootState } from '../../redux/store';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { getGenreMovies } from '../../redux/actions/getGenreMovies';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
-import { decreasePage, increasePage } from '../../redux/slices/movieListSlice';
 import MovieList from '../MovieList';
-import { setSelectedMenuItem, STATIC_MOVIE_CATEGORIES } from '../../redux/slices/generalSlice';
+import { STATIC_MOVIE_CATEGORIES } from '../../redux/slices/generalSlice';
 
 const Home = () => {
-
-  const selectedMenuItem = useSelector((state:RootState)=>state.general.selectedMenuItem);
-  const movieList = useAppSelector((state:RootState) => state.movieList );
-  const movie = useAppSelector((state:RootState) => state.movie.movieInfo );
-
-  const dispatch = useAppDispatch();
   
+  const movieList = useAppSelector((state:RootState) => state.genreMovieList );
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
   const [searchParams, setSearchParams] = useSearchParams();
-
-  console.log("Home URL main object>>>" + searchParams);
-
+  
   const paramsPage = Number(searchParams.get("page")) || 1;
   const paramsId = searchParams.get("id") || STATIC_MOVIE_CATEGORIES[0].name;
   const paramsCategoryName = searchParams.get("category") || STATIC_MOVIE_CATEGORIES[0].id;
-
-  console.log("Home URL parse>>> paramsPage:" + paramsPage + " paramsId:" + paramsId + " paramsCategory:" + paramsCategoryName);
   
   useEffect( () => {
-    
-  
-      //@ts-ignore
       dispatch(getGenreMovies( {paramsId, paramsPage} ));
-
-      dispatch(setSelectedMenuItem({name:paramsCategoryName}))
-
   }, [searchParams, dispatch ] )
-
 
   return (
     <div className='home-list'>
@@ -48,21 +33,19 @@ const Home = () => {
       <MovieList movies={movieList.movies} />
 
       <div className='page-buttons'>
-          <button
+          {paramsPage>1 && (<button
           onClick={()=> {
-            const newPage =  Number(paramsPage) -1 ;
-            setSearchParams({category:`${paramsCategoryName}`,id:`${paramsId}`, page:`${newPage}`});
-            dispatch(decreasePage());
+            const newPageNumber =  Number(paramsPage) -1 ;
+            navigate(`/?category=${paramsCategoryName}&id=${paramsId}&page=${newPageNumber}`);
           } }
-          >{`${movieList.page -1} <= ${movieList.page}`}</button>
+          >{`${paramsPage -1} <= ${paramsPage}`}</button>)}
 
           <button
             onClick={()=> {
-              const newPage =  Number(paramsPage) +1 ;
-              setSearchParams({category:`${paramsCategoryName}`,id:`${paramsId}`, page:`${newPage}`});
-              dispatch(increasePage());
+              const newPageNumber =  Number(paramsPage) +1 ;
+              navigate(`/?category=${paramsCategoryName}&id=${paramsId}&page=${newPageNumber}`);
             } }
-          >{`${movieList.page}  => ${movieList.page +1}`}</button>   
+          >{`${paramsPage}  => ${paramsPage +1}`}</button>   
         </div>
 
     </div>

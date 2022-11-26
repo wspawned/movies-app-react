@@ -2,16 +2,14 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { tmdbAPI } from "../../api/tmdbAPI";
 import { STATIC_MOVIE_CATEGORIES } from "../slices/generalSlice";
 
-
-
-export type ApiResponse = {
+export type GenreApiResponse = {
   page: number;
-  results: GenreMoviesResult[];
+  results: GenreMovie[];
   total_pages: number;
   total_results: number;
 }
 
-export type GenreMoviesResult = {
+export type GenreMovie = {
   adult: boolean;
   backdrop_path: string;
   genre_ids: number[];
@@ -32,8 +30,7 @@ const staticIds = STATIC_MOVIE_CATEGORIES.map((elm)=> {return elm.id} );
 
 export const getGenreMovies = createAsyncThunk(
   "genreMovies/get",
-  //@ts-ignore
-  async ({paramsId, paramsPage}) => {
+  async ({paramsId, paramsPage}:{paramsId:string, paramsPage:number} ) => {
     
     if(staticIds.includes(paramsId)) {
       const res = await tmdbAPI.get(`/3/movie/${paramsId}`, {
@@ -41,7 +38,7 @@ export const getGenreMovies = createAsyncThunk(
           page: paramsPage,
         }
       });
-      return res.data.results as GenreMoviesResult[];
+      return res.data.results;
     } else {
       const res = await tmdbAPI.get("/3/discover/movie/", {
         params: {
@@ -49,17 +46,7 @@ export const getGenreMovies = createAsyncThunk(
           page: paramsPage,
         }
       });
-      return res.data.results as GenreMoviesResult[];
+      return res.data.results;
     }
-
   }
 );
-
-// async (genreId:string) => {
-//   const res = await tmdbAPI.get("/3/discover/movie/", {
-//     params: {
-//       with_genres: genreId,
-//       page: 1,
-//     }
-//   });
-//   return res.data.results as GenreMoviesResult[];

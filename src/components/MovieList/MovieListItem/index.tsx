@@ -1,14 +1,12 @@
 import './style.css';
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from '../../../redux/hooks/hooks';
-import { getMovie } from '../../../redux/actions/getMovie';
 import { resetMovie } from '../../../redux/slices/movieSlice';
 
 
 //@ts-ignore
 const MovieListItem = ( {movie, key} ) => {
 
-  const [searchParams,setSearchParams] = useSearchParams();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -47,6 +45,3 @@ const MovieListItem = ( {movie, key} ) => {
 };
 
 export default MovieListItem;
-
-// src={`${base_url}w${W342H513.WIDTH}${poster_path}`}
-// /?category=Popular&id=popular&page=1

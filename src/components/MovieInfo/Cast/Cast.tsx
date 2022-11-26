@@ -10,7 +10,7 @@ const Cast = ({cast,base_url}) => {
     
     <div className="cast" >
       <p>THE CAST</p>
-      {/*@ts-ignore*/}
+      {/*//@ts-ignore */}
       {castLimited.map((person)=>{return(
         <PersonAvatar 
         src={`${base_url}w185${person.profile_path}`}
