@@ -30,8 +30,9 @@ const MovieListItem:React.FC<{movie:GenreMoviesType|RecommendedMovieType, key:nu
       navigate( `/movie/?id=${id}` );
     }}
     >
-    
-      {title}
+      <span className='list-movie-title' >
+        {title}
+      </span>
     
       <img
       className='list-poster'
