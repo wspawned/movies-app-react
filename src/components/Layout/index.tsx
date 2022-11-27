@@ -16,11 +16,13 @@ const Layout = () => {
 
   return (
     <>
+    
       <Menu />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/movie" element={ <Movie /> }></Route>
       </Routes>
+      
     </>
   )
 }
