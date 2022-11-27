@@ -27,7 +27,18 @@ button {
   width: 80px;
 }
 
-.category-header{
-  text-shadow: 0 0 2px black;
+.category-header {
+  font-size: 1.3em;
+  margin-top: 40px;
+  margin-bottom: 40px;
   color: #CC8F8F;
+
+}
+
+.category-header > h1 {
+  font-weight:normal;
+  /* font-family: 'Monoton', cursive; */
+  font-family: 'Rubik Glitch', cursive;
+  /* font-family: 'Rubik Distressed', cursive; */
+  /* font-family: 'Rubik Dirt', cursive; */
 }

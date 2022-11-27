@@ -30,7 +30,7 @@ const Movie = () => {
     <div className="movie-page">
       
       <MovieInfo/>
-      <h1 style={{textAlign: "center"}} >RECOMMENDED MOVIES</h1>
+      
       <RecommendedMovieList movies  ={recommendedMovies} />
     </div>
   );
