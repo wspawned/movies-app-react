@@ -4,13 +4,13 @@ import { getMovie, MovieInfoType } from "../actions/getMovie";
 import { getRecommendedMovies, RecommendedMovieType } from "../actions/getRecommendedMovies";
 
 interface MovieState {
-  movieInfo: MovieInfoType[] ;
+  movieInfo: MovieInfoType | {};
   recommendedMovies: RecommendedMovieType[] ;
   cast: CastType[] ;
 }
 
 const INITIAL_STATE: MovieState = {
-  movieInfo: [],
+  movieInfo: {},
   recommendedMovies: [],
   cast: [],
 };
