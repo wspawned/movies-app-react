@@ -1,15 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { getPerson, PersonType } from "../actions/getPerson"
-import { getPersonMovies, PersonMoviesApiType } from "../actions/getPersonMovies"
+import { getPersonMovies, PersonMoviesApiType, PersonMovieType } from "../actions/getPersonMovies"
 
 interface PersonState {
   personInfo: PersonType | {};
-  personMovies: PersonMoviesApiType | {};
+  personMovies: PersonMovieType[];
 };
 
 const INITIAL_STATE: PersonState = {
   personInfo: {},
-  personMovies: {},
+  personMovies: [],
 };
 
 export const personSlice = createSlice({
@@ -24,7 +24,7 @@ export const personSlice = createSlice({
     })
     builder
     .addCase( getPersonMovies.fulfilled, (state, action) => {
-      state.personMovies = action.payload
+      state.personMovies = action.payload.results;
     })
   },
 });

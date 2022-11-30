@@ -8,4 +8,14 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+
+  -webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.avatar:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }

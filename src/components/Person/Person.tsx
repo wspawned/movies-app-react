@@ -15,18 +15,17 @@ const Person = () => {
 
   const dispatch = useAppDispatch();
   const person = useAppSelector((state) => state.person.personInfo) as PersonType;
-  const personMovies = useAppSelector((state) => state.person.personMovies) as PersonMoviesApiType;
+  const personMovies = useAppSelector((state) => state.person.personMovies) as PersonMovieType[];
   
   useEffect(  () => {
     dispatch( getPerson(id) );
     dispatch( getPersonMovies(id) );
   },[dispatch, id ])
-  console.log(person)
 
   return (
     <div className="person-page">
       <PersonInfo person={person}/>
-      <PersonMovieList movies= {personMovies.results}/>
+      <PersonMovieList movies= {personMovies}/>
     </div>
   );
 };
