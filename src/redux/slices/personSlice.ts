@@ -24,7 +24,7 @@ export const personSlice = createSlice({
     })
     builder
     .addCase( getPersonMovies.fulfilled, (state, action) => {
-      state.personMovies = action.payload.results
+      state.personMovies = action.payload
     })
   },
 });

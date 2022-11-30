@@ -1,0 +1,17 @@
+.person-info {
+  display: flex;
+  padding: 100px 100px;
+  padding-bottom: 0;
+}
+
+.artwork {
+  display: block;
+}
+
+.artwork > img {
+  display: block;
+}
+
+.summary {
+  padding-left: 40px;
+}

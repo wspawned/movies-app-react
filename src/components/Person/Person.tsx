@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks/hooks";
 import { useEffect } from 'react';
 import PersonMovieList from "../PersonMovieList/PersonMovieList";
 import { getPersonMovies, PersonMoviesApiType, PersonMovieType } from "../../redux/actions/getPersonMovies";
+import PersonInfo from "../PersonInfo/PersonInfo";
 
 
 const Person = () => {
@@ -20,11 +21,11 @@ const Person = () => {
     dispatch( getPerson(id) );
     dispatch( getPersonMovies(id) );
   },[dispatch, id ])
-
+  console.log(person)
 
   return (
     <div className="person-page">
-      {`${person.name}`} -- id person name --- {`${person.name}`}
+      <PersonInfo person={person}/>
       <PersonMovieList movies= {personMovies.results}/>
     </div>
   );

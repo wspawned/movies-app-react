@@ -9,7 +9,6 @@ export const getRecommendedMovies = createAsyncThunk(
           page: 1,
         }
       });
-      console.log(res.data)
       return res.data;
   }
 );

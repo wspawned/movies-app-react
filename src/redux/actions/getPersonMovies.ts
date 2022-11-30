@@ -11,7 +11,7 @@ export const getPersonMovies = createAsyncThunk(
         page: 1,
       }
     });
-    return res.data
+    return res.data;
   }
 );
 
