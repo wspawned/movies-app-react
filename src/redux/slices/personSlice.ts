@@ -1,17 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { getPerson } from "../actions/getPerson"
-import { getPersonMovies } from "../actions/getPersonMovies"
+import { getPerson, PersonType } from "../actions/getPerson"
+import { getPersonMovies, PersonMoviesApiType } from "../actions/getPersonMovies"
 
 interface PersonState {
-  personInfo: {},
-  personMovies: [],
+  personInfo: PersonType | {};
+  personMovies: PersonMoviesApiType | {};
 };
-
-// add type of person state
 
 const INITIAL_STATE: PersonState = {
   personInfo: {},
-  personMovies: [],
+  personMovies: {},
 };
 
 export const personSlice = createSlice({

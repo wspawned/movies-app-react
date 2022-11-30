@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import { getGenres } from '../../redux/actions/getGenres';
 import { useEffect } from 'react';
 import { useAppDispatch } from '../../redux/hooks/hooks';
+import Person from '../Person/Person';
 
 const Layout = () => {
 
@@ -21,6 +22,7 @@ const Layout = () => {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/movie" element={ <Movie /> }></Route>
+        <Route path="/person" element={ <Person /> }></Route>
       </Routes>
       
     </>
