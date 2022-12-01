@@ -72,3 +72,4 @@ export const getGenreMovies = createAsyncThunk(
 
 add trailer for Movies
 
+names upperCase maybe

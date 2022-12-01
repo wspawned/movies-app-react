@@ -4,14 +4,43 @@
   padding-bottom: 0;
 }
 
-.artwork {
-  display: block;
-}
-
-.artwork > img {
-  display: block;
-}
-
 .summary {
   padding-left: 40px;
+  height: 513px;
+}
+
+.summary >h3 {
+  text-shadow: 0 0 2px black;
+}
+
+.bio-container{
+  
+  overflow: auto;
+  max-height: 72%;
+}
+
+.bio {
+  white-space: break-spaces;
+  word-break: break-word;
+  margin: 0;
+}
+
+
+.bio-container::-webkit-scrollbar {
+  display: none;
+}
+
+
+.bio-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.header-container > h1 {
+  margin: 0;
+  text-shadow: 0 0 3px black;
+}
+
+.header-container > p {
+  margin: 10px 0;
 }
