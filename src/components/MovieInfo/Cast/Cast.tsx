@@ -10,7 +10,7 @@ const Cast:React.FC<{cast:CastType[],base_url:string}> = ({cast,base_url}) => {
   return (
     
     <div className="cast" >
-      <p>THE CAST</p>
+      <h3>THE CAST</h3>
       {castLimited.map((person)=>{return(
         <PersonAvatar 
         src={`${base_url}w185${person.profile_path}`}

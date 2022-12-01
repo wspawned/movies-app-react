@@ -2,10 +2,13 @@ import { useAppSelector } from "../../redux/hooks/hooks";
 import './style.css';
 import Cast from "./Cast/Cast";
 import { MovieInfoType } from "../../redux/actions/getMovie";
+import { useNavigate } from "react-router-dom";
 
 const MovieInfo = () => {
 
   const movie = useAppSelector(state => state.movie);
+  const navigate = useNavigate();
+
   const cast = movie.cast;
   const info = movie.movieInfo as MovieInfoType;
   
@@ -22,21 +25,27 @@ const MovieInfo = () => {
         />
       </div>
 
-      <div className="summary">
+      <div className="movie-summary">
         
-        <p>{`  ${title}  `}</p>
-
+        <h1>{`  ${title}  `}</h1>
         <p>{`  ${tagline}  `}</p>
+
         <p>{`  ${runtime} min / ${release_date}  `}</p>
 
-        <p>GENRES</p>
+        <h3>GENRES</h3>
         {genres
           ? genres.map((genre: any) => {
-              return <p key={genre.id}>{genre.name}</p>;
+              return (
+                <p className="movie-genre" key={genre.id}
+                onClick={() => {
+                  navigate(`/?category=${genre.name}&id=${genre.id}&page=1`);
+                }}
+                >{genre.name}</p>
+              );
             })
           : null}
 
-        <p>ABOUT</p>
+        <h3>ABOUT</h3>
         <p>{`  ${overview}  `}</p>
 
         
@@ -44,10 +53,10 @@ const MovieInfo = () => {
         base_url={base_url} 
         />
 
-        <p><a href={`${homepage}`}>Website</a></p>
-        <p><a href={`${IMDB_base_url + imdb_id}`}>IMDB</a></p>
-
-        
+        <div className="links">
+          <a href={`${homepage}`}>Website</a>
+          <a href={`${IMDB_base_url + imdb_id}`}>IMDB</a>
+        </div>
         
       </div>
     </div>

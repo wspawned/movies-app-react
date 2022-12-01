@@ -14,7 +14,7 @@ const PersonInfo:React.FC<{person:PersonType}> = ({person}) => {
         <img src={`${base_url}w342${profile_path}`} alt={`${name} Poster`} />
       </div>
 
-      <div className="summary">
+      <div className="person-summary">
         <div className="header-container" >
           <h1>{`  ${name}  `}</h1>
           <p>{(!deathday)? `${birthday}` : `${birthday} / ${deathday}` }</p>

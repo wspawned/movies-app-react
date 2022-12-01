@@ -12,6 +12,39 @@
   display: block;
 }
 
-.summary {
+.movie-summary {
   padding-left: 40px;
+}
+
+.movie-summary > h1 {
+  margin: 0;
+  text-shadow: 0 0 3px black;
+}
+
+.movie-summary > h3 {
+  text-shadow: 0 0 2px black;
+  margin-bottom: 5px;
+}
+
+.movie-summary > p {
+  margin: 5px 0;
+}
+
+.movie-genre {
+  display: inline;
+}
+
+.movie-genre + .movie-genre {
+  margin-left: 15px;
+}
+
+.movie-genre:hover {
+  color: #CC8F8F;
+  text-shadow: 0 0 1px black;
+}
+
+.links {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
 }
