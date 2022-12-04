@@ -16,7 +16,7 @@ const PersonInfo:React.FC<{person:PersonType}> = ({person}) => {
 
       <div className="person-summary">
         <div className="header-container" >
-          <h1>{`  ${name}  `}</h1>
+          <h1>{`  ${name?.toUpperCase()}  `}</h1>
           <p>{(!deathday)? `${birthday}` : `${birthday} / ${deathday}` }</p>
         </div>
 

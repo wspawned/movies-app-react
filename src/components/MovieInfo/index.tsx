@@ -27,8 +27,8 @@ const MovieInfo = () => {
 
       <div className="movie-summary">
         
-        <h1>{`  ${title}  `}</h1>
-        <p>{`  ${tagline}  `}</p>
+        <h1>{`  ${title?.toUpperCase()}  `}</h1>
+        <p>{`  ${tagline?.toUpperCase()}  `}</p>
 
         <p>{`  ${runtime} min / ${release_date}  `}</p>
 
