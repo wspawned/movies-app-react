@@ -1,6 +1,7 @@
 import { useState } from "react";
 import TrailerModal from "./TrailerModal";
 import type { VideoResultType } from "../../../redux/actions/getMovie";
+import './style.css';
 
 const Trailer:React.FC<{videos:VideoResultType[]}> = ({videos}) => {
   const [showModal, setShowModal] = useState(false);
@@ -24,7 +25,12 @@ const Trailer:React.FC<{videos:VideoResultType[]}> = ({videos}) => {
           onClick={()=> toggleModal()}>X</button>
           
           <iframe
+          className="video-frame"
           src={`https://www.youtube.com/embed/${videoId}`}
+          frameBorder="0"
+          title="Trailer"
+          allowFullScreen
+          
           />
         </TrailerModal> :
         null

@@ -14,6 +14,7 @@ const TrailerModal = ({ children }) => {
     const modalRoot = document.getElementById("modal-trailer");
     //@ts-ignore
     modalRoot.appendChild(elRef.current);
+    
   }, []);
 //@ts-ignore
   return createPortal(<div className="modal-trailer" > {children} </div>, elRef.current);
