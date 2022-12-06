@@ -10,7 +10,6 @@
   box-shadow: 0px 8px 10px -5px rgb(0 0 0 / 20%), 0px 16px 24px 2px rgb(0 0 0 / 14%), 0px 6px 30px 5px rgb(0 0 0 / 12%);
 
   background-color: #303030;
-
 }
 
 /* #474140 */
@@ -24,6 +23,7 @@
   display: block;
   padding: 12px 28px;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 .side-drawer-item:hover {
