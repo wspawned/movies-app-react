@@ -3,6 +3,7 @@ import './style.css';
 import Cast from "./Cast/Cast";
 import { MovieInfoType } from "../../redux/actions/getMovie";
 import { useNavigate } from "react-router-dom";
+import Trailer from "./Trailer";
 
 const MovieInfo = () => {
 
@@ -12,7 +13,7 @@ const MovieInfo = () => {
   const cast = movie.cast;
   const info = movie.movieInfo as MovieInfoType;
   
-  const { title, tagline, runtime, release_date, genres, overview, homepage, imdb_id, poster_path } = info;
+  const { title, tagline, runtime, release_date, genres, overview, homepage, imdb_id, poster_path, videos } = info;
   const IMDB_base_url = "https://www.imdb.com/title/";
   const base_url:string = 'https://image.tmdb.org/t/p/';
 
@@ -56,6 +57,7 @@ const MovieInfo = () => {
         <div className="links">
           <a href={`${homepage}`}>Website</a>
           <a href={`${IMDB_base_url + imdb_id}`}>IMDB</a>
+          <Trailer videos={videos?.results} />
         </div>
         
       </div>

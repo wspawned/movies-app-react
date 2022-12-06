@@ -44,10 +44,10 @@ export interface MovieInfoType {
 }
 
 interface Videos {
-  results: Result[];
+  results: VideoResultType[];
 }
 
-interface Result {
+export interface VideoResultType {
   iso_639_1: string;
   iso_3166_1: string;
   name: string;
