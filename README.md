@@ -2,6 +2,12 @@
 
 [Deployed project link](https://main.d9k5wnto5btwe.amplifyapp.com/)
 
+![image](https://user-images.githubusercontent.com/80424496/206066608-34f0625d-a969-4127-8222-8a0d557d8ef9.png)
+
+![image](https://user-images.githubusercontent.com/80424496/206067369-90582497-35ad-422c-9ddc-fbafb56b6d63.png)
+
+
+
 ## API url
 
 https://developers.themoviedb.org/3/getting-started/introduction
