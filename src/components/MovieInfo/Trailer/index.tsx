@@ -5,7 +5,9 @@ import './style.css';
 
 const Trailer:React.FC<{videos:VideoResultType[]}> = ({videos}) => {
   const [showModal, setShowModal] = useState(false);
-  const toggleModal = () => {setShowModal(!showModal)};
+
+  const openModal = () => {setShowModal(true)};
+  const closeModal = () => {setShowModal(false)};
 
   if(videos?.length===0) {
     return null;
@@ -15,15 +17,12 @@ const Trailer:React.FC<{videos:VideoResultType[]}> = ({videos}) => {
 
   return (
     <>
-      <button
-      onClick={()=> toggleModal()}
-      >Trailer</button>
+      <button onClick={()=> openModal()} >Trailer</button>
       {
         showModal ?
-        <TrailerModal>
-          <button style={{display:"block"}}
-          onClick={()=> toggleModal()}>X</button>
-          
+        <TrailerModal
+        closeModal={closeModal}
+        >
           <iframe
           className="video-frame"
           src={`https://www.youtube.com/embed/${videoId}`}

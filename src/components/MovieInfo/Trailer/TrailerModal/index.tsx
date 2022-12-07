@@ -1,23 +1,28 @@
-import { useEffect, useRef } from "react"
+import React, { PropsWithChildren, useEffect, useRef } from "react"
 import { createPortal } from "react-dom";
 import './style.css';
 
-//@ts-ignore
-const TrailerModal = ({ children }) => {
-  const elRef = useRef(null);
-  if (!elRef.current) {
-    //@ts-ignore
-    elRef.current = document.createElement("div");
-  }
 
+const TrailerModal:React.FC <PropsWithChildren & {closeModal: () => void} > = ({ children, closeModal }) => {
+
+  const elRef = useRef< HTMLElement | null > (null)  ;
+  // as React.MutableRefObject< HTMLElement | null >
+
+  if (!elRef.current) {
+    
+    elRef.current = document.createElement("div") ;
+  }
+//@ts-ignore
   useEffect(() => {
-    const modalRoot = document.getElementById("modal-trailer");
+    const modalRoot = document.getElementById("modal-trailer")! as HTMLElement;
     //@ts-ignore
     modalRoot.appendChild(elRef.current);
-    
+    //@ts-ignore
+    return () => modalRoot.removeChild(elRef.current);
   }, []);
-//@ts-ignore
-  return createPortal(<div className="modal-trailer" > {children} </div>, elRef.current);
+
+  return createPortal(<div className="modal-trailer" onClick={()=>closeModal()} > {children} </div>, elRef.current);
 };
 
 export default TrailerModal;
+//@ts-ignore
