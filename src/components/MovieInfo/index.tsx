@@ -55,8 +55,8 @@ const MovieInfo = () => {
         />
 
         <div className="links">
-          <a href={`${homepage}`}>Website</a>
-          <a href={`${IMDB_base_url + imdb_id}`}>IMDB</a>
+          <a href={`${homepage}`}><button>Website</button></a>
+          <a href={`${IMDB_base_url + imdb_id}`}><button>IMDB</button></a>
           <Trailer videos={videos?.results} />
         </div>
         

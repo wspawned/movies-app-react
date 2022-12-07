@@ -23,4 +23,11 @@
 button {
   height: 30px;
   width: 80px;
+  color:whitesmoke;
+  background-color: #434739;
+  border-color: whitesmoke;
+  border-radius: 5px;
+  cursor: pointer;
 }
+
+/* #434739 */
